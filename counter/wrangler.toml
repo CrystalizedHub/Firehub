@@ -1,0 +1,14 @@
+name = "firehub-online"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Gives the counter the address counter.firehub.lol (needs firehub.lol on Cloudflare)
+routes = [{ pattern = "counter.firehub.lol", custom_domain = true }]
+
+[[durable_objects.bindings]]
+name = "COUNTER"
+class_name = "Counter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Counter"]
